@@ -9,6 +9,32 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"
 
 
+// Components
+import {
+  Navbar,
+  Footer,
+  Sidebar,
+  ThemeSettings
+} from "./components"
+
+
+// Pages
+import {
+  Calendar,
+  Employees,
+  Stacked,
+  Pyramid,
+  Customers,
+  Kanban,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorPicker,
+  ColorMapping
+} from "./pages"
+
+
 const App = () => {
 
   const activeMenu = false
@@ -62,26 +88,26 @@ const App = () => {
             }
           >
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-            NavBar
+              NavBar
             </div>
           </div>
 
-            <div>
-              <Routes>
-                {/* DashBoard */}
-                <Route path='/' element="Ecommerce"/>
-                <Route path="/ecommerce" element="Ecommerce" />
+          <div>
+            <Routes>
+              {/* DashBoard */}
+              <Route path='/' element="Ecommerce" />
+              <Route path="/ecommerce" element="Ecommerce" />
 
-                {/* Pages */}
-                <Route path="/orders" element="Orders"/>
-                <Route path="/employees" element="Employee"/>
-                <Route path="/customers" element="Customers"/>
+              {/* Pages */}
+              <Route path="/orders" element="Orders" />
+              <Route path="/employees" element="Employee" />
+              <Route path="/customers" element="Customers" />
 
               {/* Apps */}
-              <Route path="/kanban" element="Kanban"/>
-              <Route path="/editor" element="Editor"/>
-              <Route path="/calender" element="Calender"/>
-              <Route path="/color-picker" element="Colorpicker"/>
+              <Route path="/kanban" element="Kanban" />
+              <Route path="/editor" element="Editor" />
+              <Route path="/calender" element="Calender" />
+              <Route path="/color-picker" element="Colorpicker" />
 
 
               {/* Charts */}
@@ -96,8 +122,8 @@ const App = () => {
 
 
 
-              </Routes>
-            </div>
+            </Routes>
+          </div>
 
 
         </div>
