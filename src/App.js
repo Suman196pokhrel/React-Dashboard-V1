@@ -45,7 +45,7 @@ import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
 
-  const {activeMenu} = useStateContext()
+  const { activeMenu } = useStateContext()
 
 
   return (
@@ -66,6 +66,8 @@ const App = () => {
             </TooltipComponent>
           </div>
 
+
+            {/* SideBar  */}
           {activeMenu ? (
             <div
               className='
@@ -83,9 +85,12 @@ const App = () => {
             dark:bg-secondary-dark-bg
             '
             >
-             <Sidebar />
+              <Sidebar />
             </div>
           )}
+
+
+
           <div
             className={
               `dark:bg-main-bg 
@@ -95,43 +100,45 @@ const App = () => {
 
             }
           >
+
+            {/* NavBar   */}
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
             </div>
-         
 
-          <div>
-            <Routes>
-              {/* DashBoard */}
-              <Route path='/' element={<Ecommerce />} />
-              <Route path="/ecommerce" element={<Ecommerce />} />
+            {/* Routes  */}
+            <div>
+              <Routes>
+                {/* DashBoard */}
+                <Route path='/' element={<Ecommerce />} />
+                <Route path="/ecommerce" element={<Ecommerce />} />
 
-              {/* Pages */}
-              <Route path="/orders" element={<Orders />}/>
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customers />} />
+                {/* Pages */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
 
-              {/* Apps */}
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/calender" element={<Calendar />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
-
-
-              {/* Charts */}
-              <Route path='/line' element={<Line />} />
-              <Route path='/area' element={<Area />} />
-              <Route path='/bar' element= {<Bar />} />
-              <Route path='/pie' element={<Pie />} />
-              <Route path='/financial' element={<Financial />} />
-              <Route path='/color-mapping' element={<ColorMapping />} />
-              <Route path='/pyramid' element={<Pyramid />} />
-              <Route path='/stacked' element={<Stacked />} />
+                {/* Apps */}
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/editor" element={<Editor />} />
+                <Route path="/calender" element={<Calendar />} />
+                <Route path="/color-picker" element={<ColorPicker />} />
 
 
+                {/* Charts */}
+                <Route path='/line' element={<Line />} />
+                <Route path='/area' element={<Area />} />
+                <Route path='/bar' element={<Bar />} />
+                <Route path='/pie' element={<Pie />} />
+                <Route path='/financial' element={<Financial />} />
+                <Route path='/color-mapping' element={<ColorMapping />} />
+                <Route path='/pyramid' element={<Pyramid />} />
+                <Route path='/stacked' element={<Stacked />} />
 
-            </Routes>
-          </div>
+
+
+              </Routes>
+            </div>
 
           </div>
 
