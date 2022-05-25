@@ -24,84 +24,87 @@ const NavButton = ({ title, customFunction, icon, color, dotColor }) => (
         style={{ background: dotColor }}
         className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
       />
-        {icon}
-      
+      {icon}
     </button>
   </TooltipComponent>
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu,isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+    currentColor
+  } = useStateContext();
 
-    // TO calculate the screen size and enable/disable sidebar on window load
-  useEffect(()=>{
+  // TO calculate the screen size and enable/disable sidebar on window load
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
 
-    const handleResize = ()=> setScreenSize(window.innerWidth)
-    window.addEventListener('resize',handleResize)
+    handleResize();
 
-    handleResize()
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    return ()=> window.removeEventListener('resize',handleResize)
-
-  },[])
-
-  useEffect(()=>{
-    if(screenSize <=900){
-      setActiveMenu(false)
-    }else{
-      setActiveMenu(true)
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
     }
-  },[screenSize])
-
+  }, [screenSize]);
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
         title={"Menu"}
         customFunction={() => setActiveMenu((prev) => !prev)}
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
       <div className="flex">
         <NavButton
           title={"Cart"}
-          customFunction={()=>handleClick('cart')}
-          color="blue"
+          customFunction={() => handleClick("cart")}
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
 
         <NavButton
           title={"Chat"}
-          customFunction={()=>handleClick('chat')}
+          customFunction={() => handleClick("chat")}
           dotColor="#03c9d7"
-          color="blue"
+          color={currentColor}
           icon={<BsChatLeft />}
         />
 
         <NavButton
           title={"Notification"}
-          customFunction={()=>handleClick('notifications')}
+          customFunction={() => handleClick("notifications")}
           dotColor="#03c9d7"
-          color="blue"
+          color={currentColor}
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content={"Profile"} position="BottomCenter">
-          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-          onClick={()=>handleClick('userProfile')}
+          <div
+            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            onClick={() => handleClick("userProfile")}
           >
-            <img 
-            className="rounded-full w-8 h-8"
-            src={avatar} 
-            alt="profile"/>
+            <img className="rounded-full w-8 h-8" src={avatar} alt="profile" />
 
             <p>
-              <span className="text-gray-400 text-14">Hi,</span>{' '}
-              <span className="text-gray-400 font-bold ml-1 text-14">Michael</span>
+              <span className="text-gray-400 text-14">Hi,</span>{" "}
+              <span className="text-gray-400 font-bold ml-1 text-14">
+                Michael
+              </span>
             </p>
 
-            <MdKeyboardArrowDown 
-            className="text-gray-400 text-14"
-            />
+            <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
 
@@ -109,7 +112,6 @@ const Navbar = () => {
         {isClicked.chat && <Chat />}
         {isClicked.notifications && <Notifications />}
         {isClicked.userProfile && <UserProfile />}
-        
       </div>
     </div>
   );

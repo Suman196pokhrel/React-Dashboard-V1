@@ -25,6 +25,7 @@ const Stacked = ({height,width}) => {
       tooltip={{
         enable:true
       }}
+      className="dark:bg-secondary-dark-bg"
     >
       <Inject services={[Legend, Category, StackingColumnSeries,Tooltip]}/>
       <SeriesCollectionDirective>
