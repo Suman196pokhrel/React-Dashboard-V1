@@ -12,14 +12,14 @@ const Ecommerce = () => {
       {/* Revenu Section  */}
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
         <div className='bg-white dark:tex-gray-200 
-        dark:bg-secondary-dark-bg h-44 
-        rounded-xl w-full lg:w-80 p-8 pt-9 
+        dark:bg-secondary-dark-bg h-65 
+        rounded-xl w-full lg:w-85 p-10 pt-10 
         m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center'
         >
-          <div className='flex justify-between items-center'>
+          <div className='flex justify-between items-center pt-17'>
             <div>
-              <p className='font-bold text-gray-400'>Earnings</p>
-              <p className='text-2xl'>$63,444.80</p>
+              <p className='font-bold text-gray-400 text-xl'>Earnings</p>
+              <p className='text-3xl'>$63,444.80</p>
             </div>
           </div>
 
@@ -38,14 +38,15 @@ const Ecommerce = () => {
         <div className='flex m-3 flex-wrap justify-center gap-1 items-center'>
           {
             earningData.map((item)=>(
-              <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl'  
+              <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 lg:w-70 p-4 pt-9 rounded-2xl'  
               key={item.title}>
                 <button type='button'
                 style={{
                   color:item.iconColor,
-                  backgroundColor:item.iconBg
+                  backgroundColor:item.iconBg,
+                  
                 }}
-                className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl"
+                className="text-4xl opacity-0.9 rounded-full p-7 hover:drop-shadow-xl"
                 >
                   {item.icon}
                 </button>
@@ -68,9 +69,11 @@ const Ecommerce = () => {
       {/* Revenu Updates and Graph */}
       <div className='flex gap-10 flex-wrap justify-center'>
         <div className='
+        lg:w-1200
         bg-white dark:text-gray-200 
         dark:bg-secondary-dark-bg m-3
-        p-4 rounded-2xl md:w-780'>
+        p-6 rounded-2xl md:w-780'>
+
           <div className='flex justify-between'>
             <p className='font-semibold text-xl'>Revenu Updates</p>
             <div className='flex items-center gap-4'>
@@ -85,7 +88,7 @@ const Ecommerce = () => {
             </div>
           </div>
 
-          <div className='mt-10 flex gap-10 flex-wrap justify-center'>
+          <div className='mt-10 flex gap-10 flex-wrap justify-evenly p-5'>
             <div className='border-r-1 border-color m-4 pr-10'>
               
               <div>
